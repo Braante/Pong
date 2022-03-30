@@ -1,5 +1,8 @@
 import turtle as t
 
+name_playerA = input("Quel est votre nom, 'joueur n°1' ?")
+name_playerB = input("Quel est votre nom, 'joueur n°2' ?")
+
 playerAscore=0
 playerBscore=0
 
@@ -94,14 +97,14 @@ while True:
         ballxdirection *= -1
         playerAscore += 1
         pen.clear()
-        pen.write("player A : {}     player B : {}".format(playerAscore, playerBscore), align = 'center', font = ('Arial', 24, 'normal'))
+        pen.write("{} : {}     {} : {}".format(name_playerA, playerAscore, name_playerB, playerBscore), align = 'center', font = ('Arial', 24, 'normal'))
     
     if ball.xcor() < -390:
         ball.goto(0,0)
         ballxdirection *= - 1
         playerBscore += 1
         pen.clear()
-        pen.write("player A : {}     player B : {}".format(playerAscore, playerBscore), align = 'center', font = ('Arial', 24, 'normal'))
+        pen.write("{} : {}     {} : {}".format(name_playerA, playerAscore, name_playerB, playerBscore), align = 'center', font = ('Arial', 24, 'normal'))
 
     # Handling the collisions
     if(ball.xcor() > 340) and (ball.xcor() < 350) and (ball.ycor() < rightpaddle.ycor() + 40 and ball.ycor() > rightpaddle.ycor() - 40):
