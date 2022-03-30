@@ -14,4 +14,5 @@ If you are on Linux, you only need terminal & use the command `python3 [name fil
 
 ## III - How to play ?
 
+When you run the game, you write your name and the name of the second player.
 Only 4 keys to know, two to the left of the keyboard to move the left paddle ('a' to up & 'q' to down) and two to the right of the keyboard to move the right paddle ('key up' & 'key down').
