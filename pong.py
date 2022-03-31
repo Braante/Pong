@@ -52,22 +52,22 @@ pen.write("score", align = "center", font =('Arial', 24, 'normal'))
 #moving the paddle
 def leftpaddleup():
     y = leftpaddle.ycor()
-    y += 30
+    y += 40
     leftpaddle.sety(y)
 
 def leftpaddledown():
     y = leftpaddle.ycor()
-    y -= 30
+    y -= 40
     leftpaddle.sety(y)
 
 def rightpaddleup():
     y = rightpaddle.ycor()
-    y += 30
+    y += 40
     rightpaddle.sety(y)
 
 def rightpaddledown():
     y = rightpaddle.ycor()
-    y -= 30
+    y -= 40
     rightpaddle.sety(y)
 
 window.listen()
