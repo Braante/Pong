@@ -18,28 +18,22 @@ def start():
 
         pen = t.Turtle()
         pen.speed(0)
-        pen.color("Blue")
+        pen.color("White")
         pen.penup()
         pen.hideturtle()
-        pen.goto(0,260)
+        pen.goto(0,250)
         pen.write("player1 : {}     player2 : {}".format(name_playerA, name_playerB), align = 'center', font = ('Arial', 24, 'normal'))
+        pen.goto(0,75)
+        pen.write("The ball leaves randomly at the beginning", align = 'center', font = ('Arial', 24, 'normal'))
+        pen.goto(0,25)
+        pen.write("but will then leave on the winner of the point.", align = 'center', font = ('Arial', 24, 'normal'))
+        pen.color("Red")
+        pen.goto(0, -25)
+        pen.write("First to 5, win", align = 'center', font = ('Arial', 24, 'normal'))
 
         time.sleep(5)
         window.clear()
         play(name_playerA, name_playerB)
-
-        # def appui_quelconque():
-        #     print("Touche pressée !")
-
-        # t.setup()
-
-        # window.listen()
-        # time.sleep(5)
-        # window.onkeypress(appui_quelconque, 'a')
-
-        # if start == True:
-        #     play()
-        # time.sleep(5)
 
 def play(name_playerA, name_playerB):
     playerAscore=0
@@ -116,7 +110,9 @@ def play(name_playerA, name_playerB):
     window.onkeypress(rightpaddledown, 'Down')
 
     while True:
+        
         window.update()
+        endgame(playerAscore, playerBscore, name_playerA, name_playerB)
 
         #moving the ball
         ball.setx(ball.xcor()+ballxdirection)
@@ -153,5 +149,36 @@ def play(name_playerA, name_playerB):
         if(ball.xcor() < -340) and (ball.xcor() > -350) and (ball.ycor() < leftpaddle.ycor() + 40 and ball.ycor() > leftpaddle.ycor() - 40):
             ball.setx(-340)
             ballxdirection *= -1    
+
+def endgame(playerAscore, playerBscore, name_playerA, name_playerB):
+    window = t.Screen()
+    if playerAscore == 5:
+        window.clear()
+        scoreboard(name_playerA, name_playerB, playerAscore, playerBscore)
+    if playerBscore == 5:
+        window.clear()
+        scoreboard(name_playerA, name_playerB, playerAscore, playerBscore)
+
+def scoreboard(name_playerA, name_playerB, playerAscore, playerBscore):
+    window = t.Screen()
+    window.title("Scoreboard")
+    window.bgcolor('black')
+    window.setup(width=800, height = 600)
+    window.tracer(0)
+
+    pen = t.Turtle()
+    pen.speed(0)
+    pen.color("White")
+    pen.penup()
+    pen.hideturtle()
+    pen.goto(0,0)
+    if playerAscore > playerBscore:
+        pen.write("{} win {} to {} against {}".format(name_playerA, playerAscore, playerBscore, name_playerB), align = 'center', font = ('Arial', 24, 'normal'))
+        time.sleep(10)
+        window.bye()
+    if playerAscore < playerBscore:
+        pen.write("{} win {} to {} against {}".format(name_playerB, playerBscore, playerAscore, name_playerA), align = 'center', font = ('Arial', 24, 'normal'))
+        time.sleep(10)
+        window.bye()
 
 main()
