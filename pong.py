@@ -5,8 +5,6 @@ def main():
     start()
 
 def start():
-    name_playerA = input("Quel est votre nom, 'joueur n°1' ? ")
-    name_playerB = input("Quel est votre nom, 'joueur n°2' ? ")
 
     if __name__ == "__main__":
         #creating the platform
@@ -21,6 +19,8 @@ def start():
         pen.color("White")
         pen.penup()
         pen.hideturtle()
+        name_playerA = t.textinput("username", "What's your username ?")
+        name_playerB = t.textinput("username", "What's your username ?")
         pen.goto(0,250)
         pen.write("player1 : {}     player2 : {}".format(name_playerA, name_playerB), align = 'center', font = ('Arial', 24, 'normal'))
         pen.goto(0,75)
