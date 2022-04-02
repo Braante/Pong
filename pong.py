@@ -1,25 +1,47 @@
+import time
 import turtle as t
 
 def main():
-    print("test1")
     start()
 
 def start():
-    print("test2")
     name_playerA = input("Quel est votre nom, 'joueur n°1' ? ")
     name_playerB = input("Quel est votre nom, 'joueur n°2' ? ")
 
-    #creating the platform
-    window = t.Screen()
-    window.title("Pong Game")
-    window.bgcolor('black')
-    window.setup(width=800, height = 600)
-    window.tracer(0)
+    if __name__ == "__main__":
+        #creating the platform
+        window = t.Screen()
+        window.title("Pong Game")
+        window.bgcolor('black')
+        window.setup(width=800, height = 600)
+        window.tracer(0)
 
-    pen.write("player1 : {}     player2 : {}".format(name_playerA, name_playerB), align = 'center', font = ('Arial', 24, 'normal'))
+        pen = t.Turtle()
+        pen.speed(0)
+        pen.color("Blue")
+        pen.penup()
+        pen.hideturtle()
+        pen.goto(0,260)
+        pen.write("player1 : {}     player2 : {}".format(name_playerA, name_playerB), align = 'center', font = ('Arial', 24, 'normal'))
 
-def play():
-    print("test3")
+        time.sleep(5)
+        window.clear()
+        play(name_playerA, name_playerB)
+
+        # def appui_quelconque():
+        #     print("Touche pressée !")
+
+        # t.setup()
+
+        # window.listen()
+        # time.sleep(5)
+        # window.onkeypress(appui_quelconque, 'a')
+
+        # if start == True:
+        #     play()
+        # time.sleep(5)
+
+def play(name_playerA, name_playerB):
     playerAscore=0
     playerBscore=0
 
@@ -131,3 +153,5 @@ def play():
         if(ball.xcor() < -340) and (ball.xcor() > -350) and (ball.ycor() < leftpaddle.ycor() + 40 and ball.ycor() > leftpaddle.ycor() - 40):
             ball.setx(-340)
             ballxdirection *= -1    
+
+main()
